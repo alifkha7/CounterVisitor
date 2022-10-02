@@ -14,7 +14,9 @@ class DashboardController extends Controller
         foreach ($visitors as $data) {
             array_push($chart_data, array($data->date->format('d.m.Y'), $data->total));
         }
-        return view('dashboard', compact(['visitors', 'chart_data']));
+
+        
+        return view('dashboard')->with(['visitors' => $visitors]);
 
     }
 }
